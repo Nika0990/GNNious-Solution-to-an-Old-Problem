@@ -1,0 +1,57 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{algpseudocode}
+\usepackage{amsopn}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{float}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Project Proposal - Data Lab 1}
+\author{Veronika Sorochenkova (342588589), Diana Morgan (336472261), Sergiy Horef (341332336)}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Introduction and Chosen Path}
+Our main research goal is to train a model which given a user profile will order the open positions (companies) by relevance. (Possibly also the other way around - given a position order the profiles.)\\
+That is, we would like to order the currently open positions in such a way that the first position in the ordering would be the most fit for a given user.\\
+
+For this end, given a profile, we are planning to represent some of its features as a graph (for example each position where that person worked would be a node. Additionally every friend, or person interested in the user would be a node).\\
+Later, we would train a Graph Neural Network (GNN) to find a feature vector for the given profile such that the features would be similar to a representation of a "perfect" position for the profile i.e. based on cosine similarity.\\
+
+Our main research question is therefore - "is it possible to achive a high accuracy in this goal? And if so, can we do it efficiently?".
+
+\section{Benefits of the New Solution}
+\begin{itemize}
+    \item \textbf{Expressiveness} - GNNs are great for our goal due to the generality of the models they produce. A model trained on a given subset of graph options would work for any graph using the same basic encoding. Additionally, we are enhancing the representation of every user based on their friends and previous positions - this gives us a much better representation of the person as a whole.
+    \item \textbf{Efficiency and Enhanced User Experience} - algorithmic approach to finding a best job position reduces the manual overhead of recruiters and job seekers, cutting down search time and increasing accuracy. (Hopefully)\\ Job seekers receive personalized and relevant recommendations for open positions. Companies gain better-targeted applicants who meet their specific criteria, ultimately improving the hiring pipeline.
+    \item \textbf{Strategic Business Advantages} - LinkedIn (and similar platforms) can retain and attract more users by showcasing a sophisticated job recommendation engine. This leads to increased user engagement, more data points, and eventually, a competitive edge over other professional networking services.
+\end{itemize}
+
+\section{Relevant Data from General Databases}
+Our use of data from the linkedin/people and linkedin/companies datasets is quite self-explanatory as our models are directly based on that data.\\
+Profiles dataset is used to find features of 'friends' of a given profile, and companies are used to find features of the company nodes to enrich the position embeddings.\\
+In short: we will use all relevant data to create our embeddings. 
+
+\section{Additional Data Collection}
+We are planning to collect more data about the positions open for the companies in the companies dataset, as can be found on the LinkedIn website. (At least some of) this data is publicly available and so can be scraped using the tools provided to us on the BrightData website. (Or by simple scrapers that we can write by ourselves.)\\
+This, of course, is also directly relevant to our goal because we plan on finding the best open positions.
+
+\section{Project End Goals}
+The final goal of our algorithm is - given a profile (and possibly a positions) to find the best positions for that person (profiles for that position).\\
+Given a specific profile we would create the relevant graph, run our pretrained GNN on it, and sort the positions based on their similarity to the feature vector produced.
+
+\end{document}  
