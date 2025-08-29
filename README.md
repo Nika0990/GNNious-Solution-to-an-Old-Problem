@@ -142,7 +142,7 @@ The project incorporates the following public datasets:
 - Visual results and plots are stored in the `Pictures/` directory
 
 ## Poster
-[![Poster Preview](Pictures/poster.png)](poster.pdf)  
+[![Poster Preview](poster.png)](poster.pdf)  
 
 ## Contact
 For any questions or clarifications about this project, please contact any of the authors listed above.
